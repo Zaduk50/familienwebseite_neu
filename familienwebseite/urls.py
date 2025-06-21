@@ -20,7 +20,8 @@ from startseite import views as start_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-# Django Browser Reload (nur für Entwicklung)
-    path("__reload__/", include("django_browser_reload.urls")),
     path('', start_views.startseite, name='startseite'),
+    path('familienbereich/', start_views.familienbereich, name='familienbereich'),
+    path("__reload__/", include("django_browser_reload.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
