@@ -6,6 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     birthday = models.DateField()
     picture = models.ImageField(upload_to='profile_pictures', blank=True, null=True)
+    background = models.ImageField(upload_to='backgrounds', blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.get_full_name()} ({self.user.username})'
