@@ -3,41 +3,16 @@
 {% block title %}Startseite{% endblock %}
 
 {% block content %}
-<style>
-#inhalt-wrapper > * {
-    transform: translateX(100%);
-    transition: transform 500ms ease-in-out;
-}
-
-#inhalt-wrapper.htmx-settling > * {
-    transform: translateX(0);
-}
-</style>
-
 <div class="text-center mt-10">
     <h1 class="text-4xl font-bold mb-6">Willkommen auf meiner Familien-Web-App!</h1>
 
     <div class="flex justify-center space-x-6">
-        <button
-            class="rounded-full w-40 h-40 bg-blue-400 text-white font-bold text-xl"
-            onclick="window.location.href='/accounts/login/?next=/familienbereich/'"
-            hx-get="{% url 'familienbereich' %}"
-            hx-target="#inhalt-wrapper"
-            hx-swap="innerHTML settle:500ms">
+        <button class="rounded-full w-40 h-40 bg-blue-400 text-white font-bold text-xl"
+                hx-get="{% url 'familienbereich' %}"
+                hx-target="#main-content"
+                hx-swap="innerHTML settle:500ms">
             Max
         </button>
-        <button
-            class="rounded-full w-40 h-40 bg-blue-400 text-white font-bold text-xl"
-            onclick="window.location.href='/accounts/login/?next=/familienbereich/'"
-            hx-get="{% url 'familienbereich' %}"
-            hx-target="#inhalt-wrapper"
-            hx-swap="innerHTML settle:500ms">
-            Anna
-        </button>
-    </div>
-
-    <div id="inhalt-wrapper" class="mt-10 relative overflow-hidden min-h-[200px]">
-        <!-- Hier kommt später der Inhalt rein -->
     </div>
 </div>
 {% endblock %}
