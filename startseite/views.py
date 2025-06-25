@@ -2,8 +2,9 @@ from django.shortcuts import render
 from .models import Profile
 
 def startseite(request):
-    tristan_profile = Profile.objects.get(user__username='Tristan')
-    return render(request, 'startseite/startseite.html', {'tristan': tristan_profile})
+    profiles = Profile.objects.all()
+    print(profiles)
+    return render(request, 'startseite/startseite.html', {'profiles': profiles})
 
 def familienbereich(request):
     return render(request, 'startseite/familienbereich.html')
