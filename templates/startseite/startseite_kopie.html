@@ -14,8 +14,8 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Daniel" %}
-                    <div style="width: 10cqh;" class="absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group">
-                        <div class="relative aspect-square">
+                    <div class="absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group">
+                        <div class="relative w-[10vw] aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
@@ -29,8 +29,8 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Tristan" %}
-                    <div style="width: 8cqh;" class="absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group">
-                        <div class="relative aspect-square">
+                    <div class="absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group">
+                        <div class="relative w-[8vw] aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
@@ -44,8 +44,8 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Luisa" %}
-                    <div style="width: 7cqh;" class="absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group">
-                        <div class="relative aspect-square">
+                    <div class="absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group">
+                        <div class="relative w-[7vw] aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
@@ -59,8 +59,8 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Miriam" %}
-                    <div style="width: 8cqh;" class="absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group">
-                        <div class="relative aspect-square">
+                    <div class="absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group">
+                        <div class="relative w-[8vw] aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
@@ -74,8 +74,8 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Wiebke" %}
-                    <div style="width: 10cqh;" class="absolute top-[47%] left-[64%] -translate-x-1/2 flex flex-col items-center group">
-                        <div class="relative aspect-square">
+                    <div class="absolute top-[47%] left-[64%] -translate-x-1/2 flex flex-col items-center group">
+                        <div class="relative w-[10vw] aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
@@ -88,24 +88,9 @@
             {% endfor %}
         </div>
 
-        <div id="infos" class="w-11/12 justify-self-center bg-gray-900/40 flex flex-col justify-between items-center rounded-3xl p-6 overflow-auto">
-            <div class="w-full flex-grow">
-                <h1 class="text-center text-white" style="font-size: clamp(2rem, 5vw, 8rem);"><u>Willkommen</u></h1>
-                <p class="text-center text-gray-200 mt-4">Hier ist genug Platz für deinen Text...</p>
-            </div>
-            <div class="w-full mt-4">
-                <div class="flex flex-row justify-evenly items-center w-full">
-                    <div>
-                        <h3 class="text-white text-lg cursor-pointer">ToDo-App</h3>
-                    </div>
-                    <div>
-                        <h3 class="text-white text-lg cursor-pointer">Tagebuch</h3>
-                    </div>
-                    <div>
-                        <h3 class="text-white text-lg cursor-pointer">geteilte Listen</h3>
-                    </div>
-                </div>
-            </div>
+        <div id="infos" class="w-11/12 justify-self-center bg-gray-900/40 flex flex-col justify-start items-center rounded-3xl p-6 overflow-auto">
+            <h1 class="text-center text-white" style="font-size: clamp(2rem, 5vw, 8rem);"><u>Willkommen</u></h1>
+            <p class="text-center text-gray-200 mt-4">Hier ist genug Platz für deinen Text...</p>
         </div>
 
         <footer class="w-full bg-gray-900/40 text-gray-200 text-center backdrop-blur-sm p-2 text-md">
