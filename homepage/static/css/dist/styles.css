@@ -8,8 +8,9 @@
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-red-200: oklch(88.5% 0.062 18.334);
+    --color-yellow-400: oklch(85.2% 0.199 91.936);
+    --color-green-900: oklch(39.3% 0.095 152.535);
     --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -33,7 +34,6 @@
     --tracking-normal: 0em;
     --leading-normal: 1.5;
     --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
     --radius-3xl: 1.5rem;
     --blur-sm: 8px;
     --blur-md: 12px;
@@ -276,9 +276,6 @@
   .mt-10 {
     margin-top: calc(var(--spacing) * 10);
   }
-  .mt-auto {
-    margin-top: auto;
-  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
   }
@@ -318,23 +315,23 @@
   .w-\[8vw\] {
     width: 8vw;
   }
-  .w-\[10cqw\] {
-    width: 10cqw;
-  }
   .w-\[10vw\] {
     width: 10vw;
+  }
+  .w-auto {
+    width: auto;
   }
   .w-full {
     width: 100%;
   }
-  .flex-1 {
-    flex: 1;
+  .min-w-\[10\%\] {
+    min-width: 10%;
   }
-  .flex-auto {
-    flex: auto;
+  .min-w-\[15\%\] {
+    min-width: 15%;
   }
-  .flex-none {
-    flex: none;
+  .min-w-\[100px\] {
+    min-width: 100px;
   }
   .flex-grow {
     flex-grow: 1;
@@ -361,6 +358,12 @@
   .flex-row {
     flex-direction: row;
   }
+  .place-content-center {
+    place-content: center;
+  }
+  .place-items-center {
+    place-items: center;
+  }
   .items-center {
     align-items: center;
   }
@@ -379,6 +382,9 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .place-self-center {
+    place-self: center;
+  }
   .justify-self-center {
     justify-self: center;
   }
@@ -387,6 +393,9 @@
   }
   .overflow-hidden {
     overflow: hidden;
+  }
+  .rounded {
+    border-radius: 0.25rem;
   }
   .rounded-3xl {
     border-radius: var(--radius-3xl);
@@ -397,15 +406,9 @@
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
-  .rounded-xl {
-    border-radius: var(--radius-xl);
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-  }
-  .border-red-500 {
-    border-color: var(--color-red-500);
+  .rounded-t {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
@@ -415,14 +418,6 @@
   }
   .bg-gray-800 {
     background-color: var(--color-gray-800);
-  }
-  .bg-gray-800\/40 {
-    background-color: color-mix(in srgb, oklch(27.8% 0.033 256.848) 40%, transparent);
-  }
-  @supports (color: color-mix(in lab, red, red)) {
-    .bg-gray-800\/40 {
-      background-color: color-mix(in oklab, var(--color-gray-800) 40%, transparent);
-    }
   }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
@@ -435,11 +430,25 @@
       background-color: color-mix(in oklab, var(--color-gray-900) 40%, transparent);
     }
   }
+  .bg-green-900 {
+    background-color: var(--color-green-900);
+  }
+  .bg-green-900\/40 {
+    background-color: color-mix(in srgb, oklch(39.3% 0.095 152.535) 40%, transparent);
+  }
+  @supports (color: color-mix(in lab, red, red)) {
+    .bg-green-900\/40 {
+      background-color: color-mix(in oklab, var(--color-green-900) 40%, transparent);
+    }
+  }
+  .bg-red-200 {
+    background-color: var(--color-red-200);
+  }
   .bg-white {
     background-color: var(--color-white);
   }
-  .bg-yellow-500 {
-    background-color: var(--color-yellow-500);
+  .bg-yellow-400 {
+    background-color: var(--color-yellow-400);
   }
   .bg-gradient-to-r {
     --tw-gradient-position: to right in oklab;
@@ -468,14 +477,14 @@
   .p-2 {
     padding: calc(var(--spacing) * 2);
   }
-  .p-4 {
-    padding: calc(var(--spacing) * 4);
-  }
   .p-6 {
     padding: calc(var(--spacing) * 6);
   }
   .p-10 {
     padding: calc(var(--spacing) * 10);
+  }
+  .px-4 {
+    padding-inline: calc(var(--spacing) * 4);
   }
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
@@ -608,11 +617,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 1;
-}
-@property --tw-border-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-gradient-position {
   syntax: "*";
@@ -835,7 +839,6 @@
       --tw-scale-x: 1;
       --tw-scale-y: 1;
       --tw-scale-z: 1;
-      --tw-border-style: solid;
       --tw-gradient-position: initial;
       --tw-gradient-from: #0000;
       --tw-gradient-via: #0000;
