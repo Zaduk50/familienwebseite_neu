@@ -14,12 +14,12 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Daniel" %}
-                    <div style="width: 10cqh;" onclick="profile_selected(event, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group">
+                    <div style="width: 10cqh;" onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="profilbild absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                                <img id="Daniel" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="profilbild w-full h-full object-cover cursor-pointer">
+                                <img id="Daniel" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="w-full h-full object-cover cursor-pointer">
                             </div>
                         </div>
                     <p class="mt-2 text-gray-300 text-lg text-center">{{ profile.user.username }}</p>
@@ -29,12 +29,12 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Tristan" %}
-                    <div style="width: 8cqh;" class="absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group">
+                    <div style="width: 8cqh;" onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="profilbild absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                                <img id="Tristan" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="profilbild w-full h-full object-covercursor-pointer">
+                                <img id="Tristan" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="w-full h-full object-covercursor-pointer">
                             </div>
                         </div>
                     <p class="mt-2 text-gray-300 text-lg text-center">{{ profile.user.username }}</p>
@@ -44,12 +44,12 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Luisa" %}
-                    <div style="width: 7cqh;" class="absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group">
+                    <div style="width: 7cqh;" onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="profilbild absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                                <img id="Luisa" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="profilbild w-full h-full object-cover cursor-pointer">
+                                <img id="Luisa" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="w-full h-full object-cover cursor-pointer">
                             </div>
                         </div>
                     <p class="mt-2 text-gray-300 text-lg text-center">{{ profile.user.username }}</p>
@@ -59,12 +59,12 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Miriam" %}
-                    <div style="width: 8cqh;" class="absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group">
+                    <div style="width: 8cqh;" onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="profilbild absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                                <img id="Miriam" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="profilbild w-full h-full object-cover cursor-pointer">
+                                <img id="Miriam" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class=" w-full h-full object-cover cursor-pointer">
                             </div>
                         </div>
                     <p class="mt-2 text-gray-300 text-lg text-center">{{ profile.user.username }}</p>
@@ -74,12 +74,12 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Wiebke" %}
-                    <div style="width: 10cqh;" class="absolute top-[48%] left-[64%] -translate-x-1/2 flex flex-col items-center group">
+                    <div style="width: 10cqh;" onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="profilbild absolute top-[48%] left-[64%] -translate-x-1/2 flex flex-col items-center group">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
                             <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                                <img id="Wiebke" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="profilbild w-full h-full object-cover cursor-pointer">
+                                <img id="Wiebke" src="{{ profile.picture.url }}" alt="{{ profile.user.username }}" class="w-full h-full object-cover cursor-pointer">
                             </div>
                         </div>
                     <p class="mt-2 text-gray-300 text-lg text-center">{{ profile.user.username }}</p>
@@ -87,16 +87,16 @@
                 {% endif %}
             {% endfor %}
 
-                <div id="profilbild-anzeige" style="width: 10cqh;" class="hidden absolute top-[48%] left-[50%] -translate-x-1/2 flex flex-col items-center group">
+                <div id="profilbild-anzeige" style="width: 10cqh;" class="hidden absolute top-[48%] left-[50%] -translate-x-1/2 flex flex-col items-center group opacity-0 scale-90 transition-all duration-300">
                     <div class="relative aspect-square">
                         <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
-                        <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-110">
-                            <img id="großes-profilbild" src="/media/profile_pictures/placeholder.png" alt="Ausgewähltes Profilbild" class="w-full h-full object-cover cursor-pointer">
+                        <div class="rounded-full overflow-hidden w-full h-full transition-transform duration-300 group-hover:scale-100">
+                            <img id="großes-profilbild" src="/media/profile_pictures/placeholder.png" alt="Ausgewähltes Profilbild" class="w-full h-full object-cover">
                         </div>
                     </div>
-                    <p class="mt-2 text-gray-300 text-lg text-center">Platzhalter</p>
-                    <p class="mt-2 text-gray-900 text-lg text-center">Einloggen</p>
+                    <p class="mt-4 text-gray-300 text-lg text-center">Platzhalter</p>
+                    <btn class="cursor-pointer p-4 mt-4 text-gray-200 text-lg text-center bg-gray-900 rounded-full">Einloggen</btn>
                 </div>
         </div>
 
