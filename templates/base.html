@@ -11,19 +11,7 @@
 
     <!-- HTMX einbinden -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html, body {
-            height: 100%;
-        }
-        #header {
-            container-type: inline-size;
-        }
-    </style>
+
 </head>
 <body class="flex flex-col min-h-screen bg-gray-900 text-gray-200 font-sans">
 
@@ -31,6 +19,6 @@
         {% block content %}
         {% endblock %}
     </main>
-    <script src="{% static 'scripts/main.js' %}"></script>
+    <script src="{% static 'scripts/main.js' %}?v=100"></script>
 </body>
 </html>

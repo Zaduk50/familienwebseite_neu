@@ -2,6 +2,10 @@ function profile_selected(element, username, imageUrl) {
     const alleBilder = document.querySelectorAll(".profilbild");
     const platzhalter = document.getElementById("profilbild-anzeige");
     const grossesBild = document.getElementById("zentriertes-profilbild");
+    const platzhalterText =document.getElementById("platzhalter-txt");
+
+    // username im Platzhalter anzeigen
+    platzhalterText.textContent = username;
 
     // Alle Profilbilder ausblenden
     alleBilder.forEach(div => {
@@ -17,15 +21,17 @@ function profile_selected(element, username, imageUrl) {
     platzhalter.classList.add("opacity-100", "scale-100");
 }
 
-function hide_profile() {
-    const platzhalter = document.getElementById("profilbild-anzeige");
+function reset_layout() {
     const alleBilder = document.querySelectorAll(".profilbild");
+    const platzhalter = document.getElementById("profilbild-anzeige");
+    const grossesBild = document.getElementById("zentriertes-profilbild");
 
     platzhalter.classList.remove("opacity-100", "scale-100");
-    platzhalter.classList.add("opacity-0", "scale-90");
+    platzhalter.classList.add("opacity-0", "scale-0");
 
-    setTimeout(() => {
-        platzhalter.classList.add("hidden");
-        alleBilder.forEach(div => div.classList.remove("hidden"));
-    }, 300);
+    // Alle Profilbilder einblenden
+    alleBilder.forEach(div => {
+        div.classList.remove("opacity-0", "scale-0");
+        div.classList.add("opacity-100", "scale-100");
+    });
 }
