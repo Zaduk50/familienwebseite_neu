@@ -4,11 +4,14 @@
 {% block title %}Startseite{% endblock %}
 
 {% block content %}
-    <div class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-         style="background-image: url('{% static 'images/Wohnzimmer.jpg' %}');">
-    </div>
-    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-700 p-8 rounded-lg shadow-lg w-80">
-      <form method="POST" action="/login/">
+    <div class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all left-[0]"
+         style="background-image: url('{% static 'images/Wohnzimmer.jpg' %}');"></div>
+
+    <div class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all left-full"
+         style="background-image: url('{% static 'images/weisse_blume.JPG' %}');"></div>
+
+    <div id="login" class="absolute top-1/2 transform -translate-y-1/2 bg-gray-700 p-8 rounded-lg shadow-lg w-80 transition-all duration-500 scale-0 right-full">
+      <form method="POST" action="{% url 'login' %}" hx-post="{% url 'login' %}" hx-target="#main-content" hx-swap="innerHTML">
         {% csrf_token %}
         <label class="block mb-2 text-white">Benutzername</label>
         <input type="text" name="username" class="bg-gray-600 w-full p-2 rounded mb-4" />
@@ -16,7 +19,10 @@
         <label class="block mb-2 text-white">Passwort</label>
         <input type="password" name="password" class="bg-gray-600 w-full p-2 rounded mb-4" />
 
-        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">Login</button>
+        <div class="flex justify-between space-x-4">
+        <button type="submit" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded">Login</button>
+        <button type="button" onclick="close_login()" class="flex-1 bg-red-600 hover:bg-red-700 text-white p-2 rounded">Abbrechen</button>
+        </div>
       </form>
     </div>
 
@@ -108,7 +114,7 @@
                         </div>
                     </div>
                     <p id="platzhalter-txt" class="mt-4 text-gray-900 text-lg text-center">Platzhalter</p>
-                    <button class="px-4 py-2 hover:bg-yellow-700 bg-yellow-600 cursor-pointer text-white text-lg text-center rounded-full">Einloggen</button>
+                    <button onclick="open_login()" class="px-4 py-2 hover:bg-yellow-700 bg-yellow-600 cursor-pointer text-white text-lg text-center rounded-full">Einloggen</button>
                     <button onclick="reset_layout()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center"> X </button>
                 </div>
         </div>

@@ -35,3 +35,17 @@ function reset_layout() {
         div.classList.add("opacity-100", "scale-100");
     });
 }
+
+function open_login() {
+    const login_form = document.getElementById("login");
+
+    login_form.classList.remove("scale-0", "left-full", );
+    login_form.classList.add("scale-100", "-translate-x-1/2", "left-1/2");
+}
+
+function close_login() {
+    const login_form = document.getElementById("login");
+
+    login_form.classList.remove("scale-100", "-translate-x-1/2", "left-1/2");
+    login_form.classList.add("scale-0", "left-full", );
+}
