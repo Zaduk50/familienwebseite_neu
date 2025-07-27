@@ -1,0 +1,16 @@
+{% load static %}
+<body>
+
+    <div hx-swap-oob="true" id="userbg" class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all left-0 duration-1000"
+         style="background-image: url('{{ bg_url }}');"></div>
+
+    <div hx-swap-oob="true" id="start_bg" class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all -left-100 duration-1000"
+         style="background-image: url('{% static 'images/Wohnzimmer.jpg' %}');"></div>
+
+    <div id="pBereich" class="w-full flex-grow" hx-on::after-swap="setTimeout(hide_login, 0)">
+        <h1 class="text-center text-white" style="font-size: clamp(2rem, 5vw, 8rem);"><u>Willkommen zurück {{ user.username }}</u></h1>
+        <p class="text-center text-gray-200 mt-4 text-2xl">{{ ptext }}</p>
+        <span id="authcheck" {% if eingeloggt %}data-authenticated="true"{% endif %} class="hidden"></span>
+    </div>
+
+</body>

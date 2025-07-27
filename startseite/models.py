@@ -49,3 +49,10 @@ class SharedListItem(models.Model):
     def __str__(self):
         return self.description
 
+class PersonalInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    ptext = models.TextField()
+
+    def __str__(self):
+        return self.ptext
+

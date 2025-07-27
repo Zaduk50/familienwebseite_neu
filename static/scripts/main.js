@@ -1,3 +1,11 @@
+document.addEventListener('htmx:configRequest', (event) => {
+  const token = document.querySelector('meta[name="csrf-token"]')?.content;
+  if (token) {
+    event.detail.headers['X-CSRFToken'] = token;
+  }
+});
+
+
 function profile_selected(element, username, imageUrl) {
     const alleBilder = document.querySelectorAll(".profilbild");
     const platzhalter = document.getElementById("profilbild-anzeige");
@@ -43,9 +51,40 @@ function open_login() {
     login_form.classList.add("scale-100", "-translate-x-1/2", "left-1/2");
 }
 
-function close_login() {
+function hide_login() {
     const login_form = document.getElementById("login");
+    const loginbutton = document.getElementById("loginbutton");
+    const xbutton = document.getElementById("xbutton");
+    const authcheck = document.getElementById("authcheck");
+
+
+    const button_hide = [loginbutton, xbutton]
+
+    if (authcheck?.dataset.authenticated === "true") {
+        button_hide.forEach(button => {
+            if (button) {
+                button.classList.remove("scale-100");
+                button.classList.add("scale-0");
+            }
+        });
+    }
 
     login_form.classList.remove("scale-100", "-translate-x-1/2", "left-1/2");
     login_form.classList.add("scale-0", "left-full", );
+}
+
+function logout() {
+    const xbutton = document.getElementById("xbutton");
+    const loginbutton = document.getElementById("loginbutton");
+
+    reset_layout()
+
+    const button_hide = [loginbutton, xbutton]
+
+    button_hide.forEach(button => {
+        if (button) {
+            button.classList.remove("scale-0");
+            button.classList.add("scale-100");
+        }
+    })
 }

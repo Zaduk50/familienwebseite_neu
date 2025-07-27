@@ -20,12 +20,15 @@ from startseite import views as start_views
 from django.conf import settings
 from django.conf.urls.static import static
 
+from startseite.views import logout_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', start_views.startseite, name='startseite'),
-    path('familienbereich/', start_views.familienbereich, name='familienbereich'),
     path("__reload__/", include("django_browser_reload.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
+    path('login/', start_views.benutzer_login, name='login'),
+    path('logout/', logout_view, name='logout'),
 ]
 
 if settings.DEBUG:

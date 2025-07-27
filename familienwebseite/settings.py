@@ -58,7 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "django_browser_reload.middleware.BrowserReloadMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
-    'familienwebseite.middleware.AutoLoginGuestMiddleware',
+
 ]
 
 ROOT_URLCONF = 'familienwebseite.urls'
@@ -140,3 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+#Autologout
+SESSION_COOKIE_AGE = 900
+SESSION_SAVE_EVERY_REQUEST = True
