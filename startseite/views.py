@@ -1,13 +1,16 @@
+from http.client import responses
+
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
+from django.middleware.csrf import get_token
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
+from django.views.decorators.csrf import csrf_protect
 
 from .models import Profile
 
 def startseite(request):
     profiles = Profile.objects.all()
-    print(profiles)
     return render(request, 'startseite/startseite.html', {'profiles': profiles})
 
 def logout_view(request):
@@ -45,7 +48,11 @@ def benutzer_login(request):
                 "eingeloggt": True,
             })
 
-            return HttpResponse(content)
+            response = HttpResponse(content)
+            csrftoken = get_token(request)
+            response.set_cookie("csrftoken", csrftoken)
+
+            return response
 
         # ❌ LOGIN FEHLGESCHLAGEN
         return HttpResponse("Login fehlgeschlagen", status=401)

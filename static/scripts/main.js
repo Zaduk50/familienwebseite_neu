@@ -1,11 +1,3 @@
-document.addEventListener('htmx:configRequest', (event) => {
-  const token = document.querySelector('meta[name="csrf-token"]')?.content;
-  if (token) {
-    event.detail.headers['X-CSRFToken'] = token;
-  }
-});
-
-
 function profile_selected(element, username, imageUrl) {
     const alleBilder = document.querySelectorAll(".profilbild");
     const platzhalter = document.getElementById("profilbild-anzeige");
@@ -88,3 +80,16 @@ function logout() {
         }
     })
 }
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+document.addEventListener("htmx:configRequest", function (event) {
+  const csrftoken = getCookie("csrftoken");
+  if (csrftoken) {
+    event.detail.headers["X-CSRFToken"] = csrftoken;
+  }
+});
