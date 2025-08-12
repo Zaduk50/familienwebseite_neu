@@ -1,0 +1,9 @@
+<tr>
+    <td><input type="checkbox" class="cursor-pointer" id="todo-{{ todo.id }}"></td>
+    <td><label for="todo-{{ todo.id }}">{{ todo.title }}</label></td>
+    <td>{% if todo.description %}
+        <span class="font-bold text-green-500 hover:text-green-600 cursor-pointer">&#x276F;</span>
+    {% else %}
+        <span class="font-bold text-red-600 cursor-default">X</span>
+    {% endif %}
+</tr>

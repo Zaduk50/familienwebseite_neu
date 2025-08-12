@@ -20,7 +20,7 @@ from startseite import views as start_views
 from django.conf import settings
 from django.conf.urls.static import static
 
-from startseite.views import logout_view
+from startseite.views import logout_view, add_todo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
     path('login/', start_views.benutzer_login, name='login'),
     path('logout/', logout_view, name='logout'),
+    path('add_todo', add_todo, name='add_todo'),
 ]
 
 if settings.DEBUG:

@@ -4,13 +4,18 @@
 {% block title %}Startseite{% endblock %}
 
 {% block content %}
+
+    <!-- Backgrounds -->
+
     <div id="start_bg" class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all left-0 duration-500"
          style="background-image: url('{% static 'images/Wohnzimmer.jpg' %}');"></div>
 
     <div id="userbg" class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat transition-all left-full duration-500"
          style="background-image: url('{% static 'images/weisse_blume.JPG' %}');"></div>
 
-    <div id="login" class="absolute top-1/2 transform -translate-y-1/2 bg-gray-700 p-8 rounded-lg shadow-lg w-80 transition-all duration-1000 scale-0 right-full">
+    <!-- Login Form -->
+
+    <div id="login" class="absolute top-1/2 transform -translate-y-1/2 bg-gray-700 p-8 rounded-lg shadow-lg w-80 transition-all duration-1000 scale-0 right-full z-50">
       <form
       hx-post="{% url 'login' %}"
       hx-target="#pBereich"
@@ -41,13 +46,19 @@
     </form>
     </div>
 
+    <!-- Description Container -->
+
+    <div id="details" class="rounded-2xl p-2 border-2 border-yellow-500 scale-0 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-all duration-1000 z-50 w-3/12 max-h-3/12 overflow-hidden">
+        <button onclick="toggleDetails()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center scale-100 transition-all duration-500 z-50">X</button>
+    </div>
+
     <div id="main-content" class="grid grid-rows-[1fr_3fr_auto] h-screen gap-4 p-2">
 
-        <div id="headder" class="w-full bg-gray-900/40 backdrop-blur-sm relativ">
+        <div id="headder" class="w-full bg-gray-900/40 backdrop-blur-sm relativ z-30">
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Daniel" %}
-                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[10cqh] profilbild absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000">
+                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[10cqh] profilbild absolute top-[48%] left-[36%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000 z-40">
                          <div class="aspect-square relative">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -62,7 +73,7 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Tristan" %}
-                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[8cqh] profilbild absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000">
+                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[8cqh] profilbild absolute top-[20%] left-[42.5%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000 z-40">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -77,7 +88,7 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Luisa" %}
-                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[7cqh] profilbild absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000">
+                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[7cqh] profilbild absolute top-[5%] left-[50%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000 z-40">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -92,7 +103,7 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Miriam" %}
-                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[8cqh] profilbild absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000">
+                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[8cqh] profilbild absolute top-[20%] left-[57%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000 z-40">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -107,7 +118,7 @@
 
             {% for profile in profiles %}
                 {% if profile.user.username == "Wiebke" %}
-                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[10cqh] profilbild absolute top-[48%] left-[64%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000">
+                    <div onclick="profile_selected(this, '{{ profile.user.username }}', '{{ profile.picture.url }}')" class="w-[10cqh] profilbild absolute top-[48%] left-[64%] -translate-x-1/2 flex flex-col items-center group opacity-100 scale-100 transition-all duration-1000 z-40">
                         <div class="relative aspect-square">
                             <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -120,7 +131,7 @@
                 {% endif %}
             {% endfor %}
 
-                <div id="profilbild-anzeige" class="w-[10cqh] absolute top-[48%] left-[50%] -translate-x-1/2 flex flex-col items-center group opacity-0 scale-0 transition-all duration-1000">
+                <div id="profilbild-anzeige" class="w-[10cqh] absolute z-50 top-[48%] left-[50%] -translate-x-1/2 flex flex-col items-center group opacity-0 scale-0 transition-all duration-1000">
                     <div class="relative aspect-square">
                         <div class="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 blur-md scale-120 transition-all duration-500"></div>
 
@@ -129,39 +140,88 @@
                         </div>
                     </div>
                     <p id="platzhalter-txt" class="mt-4 text-gray-900 text-lg text-center">Platzhalter</p>
-                    <button id="loginbutton" onclick="open_login()" class="px-4 py-2 hover:bg-yellow-700 bg-yellow-600 cursor-pointer text-white text-lg text-center rounded-full scale-100 transition-all duration-500">Einloggen</button>
-                    <button id="xbutton" onclick="reset_layout()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center scale-100 transition-all duration-500"> X </button>
+                    <button id="loginbutton" onclick="open_login()" class="px-4 py-2 hover:bg-yellow-700 bg-yellow-600 cursor-pointer text-white text-lg text-center rounded-full scale-100 transition-all duration-500 relative z-10">Einloggen</button>
+                    <button id="xbutton" onclick="reset_layout()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center scale-100 transition-all duration-500 z-10"> X </button>
                 </div>
 
                 <form
                     hx-post="{% url 'logout' %}"
-                    hx-target="#platzhalter-txt"
+                    hx-target="#layout-trigger"
                     hx-swap="innerHTML"
                     hx-on::afterRequest="logout()"
-                    class="text-red-500 rounded-full text-center bottom-right-10 absolute bottom-4 right-4 shadow m-4 py-2 px-4 hover:bg-red-600 hover:text-gray-200 transition-all">
+                    hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                    class="text-red-500 rounded-full text-center bottom-right-10 absolute bottom-4 right-4 shadow m-4 py-2 px-4 hover:bg-red-600 hover:text-gray-200 transition-all z-40">
                     {% csrf_token %}
                     <button type="submit">LOGOUT</button>
                 </form>
 
         </div>
 
-        <div id="infos" class="w-11/12 justify-self-center bg-gray-900/40 flex flex-col justify-between items-center rounded-3xl p-6 overflow-auto">
-            <div id="pBereich" hx-on::after-swap="setTimeout(hide_login, 0)" class="w-full flex-grow">
+        <div id="infos" class="w-11/12 justify-self-center bg-gray-900/40 flex flex-col justify-between items-center rounded-3xl pt-6 pr-6 pl-6 pb-0 relative z-20">
+            <div id="pBereich" hx-on::after-swap="hide_login()" class="w-full flex-grow relativ z-30">
                 <h1 class="text-center text-white" style="font-size: clamp(2rem, 5vw, 8rem);"><u>Willkommen {{ user.username }}</u></h1>
                 <p class="text-center text-gray-200 mt-4 text-2xl">Hier ist genug Platz für deinen Text …</p>
                 <span id="authcheck" {% if eingeloggt %}data-authenticated="true"{% endif %} class="hidden"></span>
             </div>
-            <div class="w-full mt-4">
-                <div class="flex flex-row justify-evenly items-center w-full">
-                    <div class="min-w-[15%] text-center">
-                        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">ToDo-App</h3>
+
+            <div id="apps" class="flex flex-grow justify-around items-end">
+                <div id="todoapp" class="w-[25%] text-center">
+                    <div
+                        onclick="toggleTodoApp()"
+                        class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">
+                        <h3>ToDo-App</h3>
                     </div>
-                    <div class="min-w-[15%] text-center">
-                        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">Tagebuch</h3>
+                    <div
+                        id="todo-wrapper"
+                        class="transition-all duration-750 ease-in-out overflow-hidden max-h-0">
+                        <table class="table-fixed w-full border-2 border-yellow-500 bg-gray-700/40">
+                            <thead class="border-b border-yellow-500">
+                                <tr>
+                                    <th scope="col">Erledigt?</th>
+                                    <th scope="col">ToDo-App</th>
+                                    <th scope="col">Details verfügbar?</th>
+                                </tr>
+                            </thead>
+                            <tbody id="todo-table-body" class="divide-y divide-yellow-500" >
+                                {% if user.is_authenticated %}
+                                    {% for todo in todos %}
+                                    <tr>
+                                        <td><input type="checkbox" class="cursor-pointer" id="todo-{{ todo.id }}"></td>
+                                        <td><label for="todo-{{ todo.id }}">{{ todo.title }}</label></td>
+                                        <td>{% if todo.description %}
+                                            <span class="font-bold text-green-500 hover:text-green-600 cursor-pointer">&#x276F;</span>
+                                        {% else %}
+                                            <span class="font-bold text-red-600 cursor-default">X</span>
+                                        {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                {% endif %}
+                            </tbody>
+                        </table>
+                        <div class="border-yellow-500 rounded-b-lg p-4 border-2 border-t-0 rounded-b-lg bg-gray-700/40 gap-2">
+                            <h3 class="text-red-500 mb-4">!!! Gast-User-Daten werden nur Temporär gespeichert!!!</h3>
+                            <form
+                                class="flex flex-col items-center border-yellow-500"
+                                hx-post="{% url 'add_todo' %}"
+                                hx-target="#todo-table-body"
+                                hx-swap="beforeend"
+                                >
+                                {% csrf_token %}
+                                <input type="text" name="title" placeholder="neue Aufgabe" class="border w-full rounded px-1" required>
+                                <textarea name="description" rows="2" placeholder="ggf. Details" class="border w-full rounded px-1 mt-2 resize-none"></textarea>
+                                <button type="submit" class="bg-green-500 hover:bg-green-600 text-white rounded-lg mt-2 px-2 py-1 cursor-pointer">
+                                    Hinzufügen
+                                </button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="min-w-[15%] text-center">
-                        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">geteilte Listen</h3>
-                    </div>
+                </div>
+                <div class="w-[25%] text-center">
+                    <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">Tagebuch</h3>
+                </div>
+                <div class="w-[25%] text-center">
+                    <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">geteilte Listen</h3>
                 </div>
             </div>
         </div>
@@ -169,6 +229,9 @@
         <footer class="w-full bg-gray-900/40 text-gray-200 text-center backdrop-blur-sm p-2 text-md">
             © 2025 Meine Familie
         </footer>
+    </div>
+    <div id="layout-trigger" class="hidden" hx-on::after-swap="logout()">
+    <!-- Wird nie wirklich angezeigt, nur für Event-Trigger -->
     </div>
 
 {% endblock %}

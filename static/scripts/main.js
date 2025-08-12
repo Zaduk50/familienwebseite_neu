@@ -81,15 +81,82 @@ function logout() {
     })
 }
 
+// Nach erfolgreichem Login CSRF-Token im Logout-Form aktualisieren
+document.addEventListener('htmx:afterRequest', function(event) {
+    // Nur bei erfolgreichem Login (200) und wenn es der Login-Request war
+    if (event.detail.xhr.status === 200) {
+        // CSRF-Token aus Cookie oder Response-Header lesen
+        let newCsrfToken = event.detail.xhr.getResponseHeader('X-CSRF-Token');
+
+        if (!newCsrfToken) {
+            // Fallback: Aus Cookie lesen
+            newCsrfToken = getCookie('csrftoken');
+        }
+
+        if (newCsrfToken) {
+            // Alle CSRF-Token Inputs aktualisieren
+            document.querySelectorAll('input[name="csrfmiddlewaretoken"]').forEach(input => {
+                input.value = newCsrfToken;
+            });
+
+            console.log('CSRF-Token aktualisiert:', newCsrfToken);
+        }
+    }
+});
+
+// Cookie lesen Hilfsfunktion
 function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
-document.addEventListener("htmx:configRequest", function (event) {
-  const csrftoken = getCookie("csrftoken");
-  if (csrftoken) {
-    event.detail.headers["X-CSRFToken"] = csrftoken;
-  }
+// Für alle HTMX-Requests CSRF-Token aus Cookie setzen
+document.addEventListener('htmx:configRequest', function(event) {
+    const token = getCookie('csrftoken');
+    if (token) {
+        event.detail.headers['X-CSRFToken'] = token;
+    }
 });
+
+function toggleTodoApp() {
+    const wrapper = document.getElementById("todo-wrapper");
+
+    if (wrapper.classList.contains("max-h-0")) {
+        wrapper.classList.remove("max-h-0", "overflow-hidden");
+        wrapper.classList.add("max-h-96", "overflow-auto");
+    } else {
+        wrapper.classList.remove("max-h-96", "overflow-auto");
+        wrapper.classList.add("max-h-0", "overflow-hidden");
+    }
+}
+
+function toggleDetails() {
+    const details = document.getElementById("details");
+
+    if (details.classList.contains("scale-0")) {
+        details.classList.remove("scale-0", "opacity-0", "overflow-hidden");
+        details.classList.add("scale-100", "opacity-100", "overflow-auto");
+    } else {
+        details.classList.remove("scale-100", "opacity-100", "overflow-auto");
+        details.classList.add("scale-0", "opacity-0", "overflow-hidden");
+    }
+}
+
+function showDetails(element) {
+    const description = element.getAttribute("data-description");
+    const detailsBox = document.getElementById("details");
+
+    detailsBox.innerText = description;
+
+    toggleDetails();
+}
