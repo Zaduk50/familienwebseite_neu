@@ -48,8 +48,9 @@
 
     <!-- Description Container -->
 
-    <div id="details" class="rounded-2xl p-2 border-2 border-yellow-500 scale-0 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-all duration-1000 z-50 w-3/12 max-h-3/12 overflow-hidden">
-        <button onclick="toggleDetails()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center scale-100 transition-all duration-500 z-50">X</button>
+    <div id="details" class="rounded-2xl p-2 border-2 border-yellow-500 scale-0 opacity-0 absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 transition-all duration-1000 z-50 w-3/12 max-h-3/12">
+        <button id="xdetails" onclick="closeDetails()" class="absolute -top-2 -right-2 bg-red-600 hover:bg-red-700 text-white rounded-full w-8 h-8 flex items-center justify-center scale-0 transition-all duration-500 z-50">X</button>
+        <div id="details-text" class="text-white text-center"></div>
     </div>
 
     <div id="main-content" class="grid grid-rows-[1fr_3fr_auto] h-screen gap-4 p-2">

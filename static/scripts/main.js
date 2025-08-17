@@ -70,6 +70,7 @@ function logout() {
     const loginbutton = document.getElementById("loginbutton");
 
     reset_layout()
+    closeaApps()
 
     const button_hide = [loginbutton, xbutton]
 
@@ -133,30 +134,46 @@ function toggleTodoApp() {
 
     if (wrapper.classList.contains("max-h-0")) {
         wrapper.classList.remove("max-h-0", "overflow-hidden");
-        wrapper.classList.add("max-h-96", "overflow-auto");
+        wrapper.classList.add("max-h-[40rem]", "overflow-auto");
     } else {
-        wrapper.classList.remove("max-h-96", "overflow-auto");
+        wrapper.classList.remove("max-h-[40rem]", "overflow-auto");
         wrapper.classList.add("max-h-0", "overflow-hidden");
     }
 }
 
-function toggleDetails() {
+function openDetails() {
     const details = document.getElementById("details");
+    const xdetails = document.getElementById("xdetails");
 
     if (details.classList.contains("scale-0")) {
-        details.classList.remove("scale-0", "opacity-0", "overflow-hidden");
-        details.classList.add("scale-100", "opacity-100", "overflow-auto");
-    } else {
-        details.classList.remove("scale-100", "opacity-100", "overflow-auto");
-        details.classList.add("scale-0", "opacity-0", "overflow-hidden");
+        details.classList.remove("scale-0", "opacity-0");
+        details.classList.add("scale-100", "opacity-100");
+        xdetails.classList.remove("scale-0");
+        xdetails.classList.add("scale-100");
+    }
+}
+
+function closeDetails() {
+    const details = document.getElementById("details");
+    const xdetails = document.getElementById("xdetails");
+
+    if (details.classList.contains("scale-100")){
+        details.classList.remove("scale-100", "opacity-100");
+        details.classList.add("scale-0", "opacity-0");
+        xdetails.classList.remove("scale-100");
+        xdetails.classList.add("scale-0");
     }
 }
 
 function showDetails(element) {
     const description = element.getAttribute("data-description");
-    const detailsBox = document.getElementById("details");
+    const detailsText = document.getElementById("details-text");
 
-    detailsBox.innerText = description;
+    detailsText.innerText = description;
 
-    toggleDetails();
+    openDetails();
+}
+
+function closeaApps() {
+    closeDetails()
 }

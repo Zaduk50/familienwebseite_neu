@@ -1,0 +1,17 @@
+<div id="infos" class="w-11/12 justify-self-center bg-gray-900/40 flex flex-col justify-between items-center rounded-3xl pt-6 pr-6 pl-6 pb-0 overflow-auto relative z-20">
+    <div id="pBereich" hx-on::after-swap="setTimeout(hide_login, 1000)" class="w-full flex-grow relativ z-30">
+        <h1 class="text-center text-white" style="font-size: clamp(2rem, 5vw, 8rem);"><u>Willkommen {{ user.username }}</u></h1>
+        <p class="text-center text-gray-200 mt-4 text-2xl">Hier ist genug Platz für deinen Text …</p>
+        <span id="authcheck" {% if eingeloggt %}data-authenticated="true"{% endif %} class="hidden"></span>
+    </div>
+
+
+    <div id="todoapp" class="w-[20%] text-center absolute bottom-0 left-1/7 z-30">
+        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">ToDo-App</h3>
+    </div>
+    <div class="w-[20%] text-center absolute bottom-0 left-3/7 z-30">
+        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">Tagebuch</h3>
+    </div>
+    <div class="w-[20%] text-center absolute bottom-0 left-5/7 z-30">
+        <h3 class="text-white text-lg cursor-pointer bg-yellow-500 px-4 py-2 rounded-t hover:bg-yellow-600">geteilte Listen</h3>
+</div>
