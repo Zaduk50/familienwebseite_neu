@@ -177,3 +177,14 @@ function showDetails(element) {
 function closeaApps() {
     closeDetails()
 }
+
+function toggleStrike(checkbox){
+    const id = checkbox.id.replace("todo-", "label-");
+    const label = document.getElementById(id);
+
+    if (checkbox.checked) {
+        label.classList.add("line-through", "text-gray-500");
+    } else {
+        label.classList.remove("line-through", "text-gray-500");
+    }
+}

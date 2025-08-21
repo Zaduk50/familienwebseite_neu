@@ -27,7 +27,7 @@
                 <thead class="border-b border-yellow-500">
                     <tr>
                         <th scope="col">Erledigt?</th>
-                        <th scope="col">ToDo-App</th>
+                        <th scope="col">Aufgabe</th>
                         <th scope="col">Details verfügbar?</th>
                     </tr>
                 </thead>
@@ -35,8 +35,8 @@
                     {% if user.is_authenticated %}
                         {% for todo in todos %}
                         <tr>
-                            <td><input type="checkbox" class="cursor-pointer" id="todo-{{ todo.id }}"></td>
-                            <td><label for="todo-{{ todo.id }}">{{ todo.title }}</label></td>
+                            <td><input type="checkbox" class="cursor-pointer" id="todo-{{ todo.id }}" onchange="toggleStrike(this)"></td>
+                            <td><label id="label-{{ todo.id }}" for="todo-{{ todo.id }}">{{ todo.title }}</label></td>
                             <td>{% if todo.description %}
                                 <span class="font-bold text-green-500 hover:text-green-600 cursor-pointer"
                                       onclick="showDetails(this)"
